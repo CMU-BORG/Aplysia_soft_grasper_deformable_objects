@@ -89,7 +89,7 @@ Class for communicating with the soft grasper from the PC is contained in [Robot
 
 ### SNS controllers
 
-The different flavors of the SNS controlelr are contained within [Robot Experiments/GUI/EmbeddedSystems/SNS].
+The different flavors of the SNS controller are contained within [Robot Experiments/GUI/EmbeddedSystems/SNS].
 
 ## Aligning Point Clouds and quantifying deformation
 
