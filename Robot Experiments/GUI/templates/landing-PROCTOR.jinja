@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='landing-PROCTOR.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Arial:wght@700&display=swap"
+    />
+    <script type="text/javascript" src="date.js"></script>
+  </head>
+  <body>
+    <div class="header-bar-proctor">
+      <div class="header-left">
+        <img 
+          class="borg" 
+          alt="" 
+          src="{{ url_for('static', filename='/public/borg-logo.svg') }}" 
+        />
+
+        <img 
+          class="cmu" 
+          alt=""
+          src="{{ url_for('static', filename='/public/cmu-logo.svg') }}" 
+        />
+      </div>
+
+      <div class="header-right">
+        {# rectangle-parent #}
+        <button class="pause" id="pause" type="submit">
+          <div class="text">Pause</div>
+        </button>
+
+        <button class="cancel" id="cancel" type="submit">
+          <div class="text">Cancel</div>
+        </button>
+
+        <img 
+          class="menu-icon" 
+          alt="" 
+          src="{{ url_for('static', filename='/public/menu.svg') }}"
+        />
+      </div>
+
+    </div>
+
+    <div class="info-screen-proctor">
+
+      <div class="please-specify-the">
+        Please specify the type of object at each location
+      </div>
+
+      <div class="items-form">
+        {% for row in range(3) %}
+          {% for col in range(3) %}
+            {% set n = row * 3 + col %}
+            {% set type = 'type' + n|string %}
+            <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
+              <img class="item-icon" alt="" src="{{ url_for('static', filename='public/gantry-circle.svg') }}" />
+              <input
+                class="item-input"
+                type="text"
+                defaultvalue="Type"
+                placeholder="Type"
+                name="{{ type }}"
+                value="{{ request.form[type] }}"
+              />
+            </div>
+          {% endfor %}
+        {% endfor %}
+
+      </div>
+
+      <div class="id-code">ID Code</div>
+      <img class="vector-icon" alt="" src="{{ url_for('static', filename='public/vector.svg') }}" />
+
+      <div class="age">Age</div>
+      <div class="select-grasper-type">Select grasper type:</div>
+      <img class="vector-icon1" alt="" src="{{ url_for('static', filename='public/vector1.svg') }}" />
+
+      <div class="time-log">Time Log</div>
+      <img class="vector-icon2" alt="" src="{{ url_for('static', filename='public/vector2.svg') }}" />
+
+      <div class="start-date">Start Date</div>
+
+      <img class="vector-icon5" alt="" src="{{ url_for('static', filename='public/vector5.svg') }}" />
+
+      <div class="gender">Gender</div>
+
+      <p class="jan-28" id="start-date">{{date}}</p>
+      <p class="am" id="time-log">{{time}}</p>
+      <div class="please-fill-out">Please fill out the information below</div>
+      
+      <button class="rectangle-parent" id="done" type="submit">
+        <div class="group-child"></div>
+        <div class="done">Done</div>
+      </button>
+      <button class="rectangle-group" id="soft">
+        <div class="group-child"></div>
+        <div class="soft-grasper">Soft Grasper</div>
+      </button>
+      <button class="rectangle-container" id="dual-grasper">
+        <div class="group-child"></div>
+        <div class="dual-grasper">Dual Grasper</div>
+      </button>
+
+      <input
+        class="info-screen-proctor-child"
+        type="text"
+        placeholder="e.g. 123456"
+        required
+        id="id-code"
+        name="id-code"
+        value="{{ request.form['id-code'] }}"
+      />
+
+      <input 
+        class="info-screen-proctor-item" 
+        type="number" 
+        required 
+        id="age" 
+        name="age"
+        value="{{ request.form['age'] }}"
+      />
+
+      <input
+        class="info-screen-proctor-inner"
+        type="text"
+        required
+        id="gender"
+        name="gender"
+        value="{{ request.form['gender'] }}"
+      />
+
+    </div>
+
+    <script>
+
+    </script>
+  </body>
+</html>

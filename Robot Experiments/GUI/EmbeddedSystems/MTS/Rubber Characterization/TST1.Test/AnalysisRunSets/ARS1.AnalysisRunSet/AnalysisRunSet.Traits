@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AnalysisRunSet version="4.3">
+  <_TraitsFileList_ type="String">
+    <String>AnalysisRunSet.Traits</String>
+  </_TraitsFileList_>
+  <Name>ARS1</Name>
+  <AnalysisRunsKeys isNull="true" />
+  <Selector>AnalysisRunSets</Selector>
+  <UniqueId>{3aa60d66-4f91-4d7d-b5da-bf4205762eb8}</UniqueId>
+  <AnalysisDefinition />
+  <DisplayName>
+    <LocalizedString version="4.3">
+      <Selector>DisplayName</Selector>
+      <UniqueId>{d8c553fc-9081-466c-ac88-2343213ef369}</UniqueId>
+      <InternalLocalizedStrings>
+        <Entry>
+          <Key>en</Key>
+          <Value>MTS EM Tension (Simplified)</Value>
+        </Entry>
+        <Entry>
+          <Key>cs</Key>
+          <Value>MTS EM Tah (zjednodušené)</Value>
+        </Entry>
+        <Entry>
+          <Key>de</Key>
+          <Value>MTS EM Zugtest (vereinfacht)</Value>
+        </Entry>
+        <Entry>
+          <Key>es</Key>
+          <Value>MTS EM Resistencia a la tracción (simplificado)</Value>
+        </Entry>
+        <Entry>
+          <Key>fr</Key>
+          <Value>MTS EM Traction (simplifiée)</Value>
+        </Entry>
+        <Entry>
+          <Key>it</Key>
+          <Value>Tensione (Semplificata) EM MTS</Value>
+        </Entry>
+        <Entry>
+          <Key>ja</Key>
+          <Value>MTS EM 引張（単純化）</Value>
+        </Entry>
+        <Entry>
+          <Key>ko</Key>
+          <Value>MTS EM 인장(단순화됨)</Value>
+        </Entry>
+        <Entry>
+          <Key>pt</Key>
+          <Value>MTS EM Tração (Simplificado)</Value>
+        </Entry>
+        <Entry>
+          <Key>ru</Key>
+          <Value>MTS EM Растяжение (упрощённое)</Value>
+        </Entry>
+        <Entry>
+          <Key>tr</Key>
+          <Value>MTS EM Çekme (Basit)</Value>
+        </Entry>
+        <Entry>
+          <Key>zh-hans</Key>
+          <Value>MTS EM 拉伸试验（简单）</Value>
+        </Entry>
+        <Entry>
+          <Key>zh-hant</Key>
+          <Value>MTS EM 拉力 (簡化)</Value>
+        </Entry>
+        <Entry>
+          <Key>pl</Key>
+          <Value>Rozciąganie  (uproszczone) na maszynach elektromechanicznych MTS</Value>
+        </Entry>
+      </InternalLocalizedStrings>
+    </LocalizedString>
+  </DisplayName>
+  <ExcludeAnalysisRunRules />
+  <ExcludedAnalysisRunsInfo />
+</AnalysisRunSet>

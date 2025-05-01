@@ -1,0 +1,8 @@
+Variable_Name	Control_Type	Control_Min	Control_Max	Units	Sample_Type	Sample_Parameters_mean	Sample_Parameters_stddev	Sample_Parameters_seed	Variable_hold_time_s	Total_run_time_s	Sample_freq_Hz
+x	STATE	-12	12	mm	UNIFORM				30	1200	20
+y	STATE	-12	12	mm	UNIFORM				30	1200	20
+z	STATE	-12	12	mm	UNIFORM			0	30	1200	20
+grasper_pressure	CONTROL	0	10.5	psi	UNIFORM				30	1200	20
+jaw_1	STATE	0	3	psi	UNIFORM				30	1200	20
+jaw_2	STATE	0	3	psi	UNIFORM				30	1200	20
+jaw_3	STATE	0	3	psi	UNIFORM				30	1200	20

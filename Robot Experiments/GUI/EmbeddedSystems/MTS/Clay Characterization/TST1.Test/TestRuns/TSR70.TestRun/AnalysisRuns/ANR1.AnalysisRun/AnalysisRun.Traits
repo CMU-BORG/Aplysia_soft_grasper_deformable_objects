@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AnalysisRun version="4.3">
+  <_TraitsFileList_ type="String">
+    <String>AnalysisRun.Traits</String>
+  </_TraitsFileList_>
+  <Name>ANR1</Name>
+  <Owner>MTS</Owner>
+  <DateCreated>02/23/2025 11:46:37</DateCreated>
+  <DateLastModified>02/23/2025 11:47:14</DateLastModified>
+  <SavedState>Completed</SavedState>
+  <Selector>AnalysisRuns</Selector>
+  <UniqueId>{be6e03ba-361e-4afc-a5b2-5ac66bcfbc93}</UniqueId>
+  <Description>
+    <LocalizedString version="4.3">
+      <Selector>Description</Selector>
+      <UniqueId>{aef78ed5-4720-4363-a78b-68f654e8636b}</UniqueId>
+      <InternalLocalizedStrings />
+    </LocalizedString>
+  </Description>
+  <AnalysisDefinition>AND1</AnalysisDefinition>
+  <DisplayName>
+    <LocalizedString version="4.3">
+      <Selector>DisplayName</Selector>
+      <UniqueId>{0b653e34-9739-42b3-929c-4d0b8f24dec7}</UniqueId>
+      <InternalLocalizedStrings>
+        <Entry>
+          <Key>en</Key>
+          <Value>Test Run 70</Value>
+        </Entry>
+      </InternalLocalizedStrings>
+    </LocalizedString>
+  </DisplayName>
+</AnalysisRun>

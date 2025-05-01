@@ -1,0 +1,438 @@
+<?xml version="0.0" ?>
+<robot name="GantryAssembly_NoGrasper">
+	<link name="base_link_gantry">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 -0.04199 0.01790"/>
+			<mass value="5.77760"/>
+			<inertia ixx="0.24100" ixy="0" ixz="0" iyy="0.18076" iyz="0" izz="0.41768"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_-1_0">
+				<color rgba="0.89804 0.91765 0.92941 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="LeftUpright">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.28158 0.35631 -0.04199"/>
+			<mass value="1.48860"/>
+			<inertia ixx="0.05703" ixy="0" ixz="0" iyy="0.00035" iyz="0" izz="0.05721"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/LeftUpright.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_0_0">
+				<color rgba="0.89804 0.91765 0.92941 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/LeftUpright.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="ZBar">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.01023 -0.04199"/>
+			<mass value="0.92261"/>
+			<inertia ixx="0.00016" ixy="0" ixz="0" iyy="0.03054" iyz="0" izz="0.03050"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/ZBar.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_1_0">
+				<color rgba="0.89804 0.91765 0.92941 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/ZBar.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="GrasperBase">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.02860 0.01748 0.00000"/>
+			<mass value="0.26347"/>
+			<inertia ixx="0.00011" ixy="0" ixz="0" iyy="0.00016" iyz="0" izz="0.00012"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/GrasperBase.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_2_0">
+				<color rgba="0.89804 0.91765 0.92941 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/GrasperBase.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="RightUpright">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.28158 0.35631 -0.04199"/>
+			<mass value="1.48860"/>
+			<inertia ixx="0.05703" ixy="0" ixz="0" iyy="0.00035" iyz="0" izz="0.05721"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/RightUpright.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_3_0">
+				<color rgba="0.89804 0.91765 0.92941 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/RightUpright.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="BasePlate">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00191 -0.25718"/>
+			<mass value="2.72860"/>
+			<inertia ixx="0.06159" ixy="0" ixz="0" iyy="0.12313" iyz="0" izz="0.06159"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/BasePlate.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_4_0">
+				<color rgba="0.89804 0.91765 0.92941 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/BasePlate.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="ObjectBase">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.01000 0.00000"/>
+			<mass value="0.03817"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/ObjectBase.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_5_0">
+				<color rgba="0.89804 0.91765 0.92941 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/ObjectBase.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="base_link">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 -0.01391 0.00000"/>
+			<mass value="0.26347"/>
+			<inertia ixx="0.00109" ixy="0" ixz="0" iyy="0.00090" iyz="0" izz="0.00167"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_-1_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="CylinderCons">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 -0.02443 0.00000"/>
+			<mass value="0.00260"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/CylinderCons.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_0_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/CylinderCons.obj" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="SoftSupport1">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 -0.00006 -0.00968"/>
+			<mass value="0.02002"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport1.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_1_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport1.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="SoftJaw1">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 0.00000 -0.05439"/>
+			<mass value="0.01512"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftJaw1.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_2_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftJaw1.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="SoftSupport2">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 -0.00006 -0.00549"/>
+			<mass value="0.02002"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport2.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_3_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport2.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="SoftJaw2">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 -0.05439"/>
+			<mass value="0.01512"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftJaw2.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_4_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftJaw2.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="SoftSupport3">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 -0.00006 -0.03111"/>
+			<mass value="0.02002"/>
+			<inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport3.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_5_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport3.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<link name="SoftJaw3">
+		<inertial>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="-0.00000 -0.00000 -0.05439"/>
+			<mass value="0.01512"/>
+			<inertia ixx="0.00000" ixy="0" ixz="0" iyy="0.00000" iyz="0" izz="0.00000"/>
+		</inertial>
+		<visual>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftJaw3.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+			<material name="mat_6_0">
+				<color rgba="0.79216 0.81961 0.93333 1.00000" />
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+			<geometry>
+				<mesh filename="V:\Research\FRR\FRR Software Interface\FRR-Software-Interface\GUI\EmbeddedSystems\Gantry\envs\URDF/SoftGrasperAssembly_SimplifiedTilt/meshes/SoftJaw3.STL" scale="1.00000 1.00000 1.00000"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="LeftUprightJoint" type="fixed">
+		<parent link="base_link_gantry"/>
+		<child link="LeftUpright"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="1.57080 -0.00000 0.00000" xyz="0.00000 -0.04199 0.00000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="ZBar_Joint" type="prismatic">
+		<parent link="LeftUpright"/>
+		<child link="ZBar"/>
+		<limit effort="0.00000" lower="-0.50000" upper="0.00000" velocity="0.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.56296 0.00000"/>
+		<axis xyz="0.00000 1.00000 0.00000"/>
+	</joint>
+	<joint name="GrasperBase" type="prismatic">
+		<parent link="ZBar"/>
+		<child link="GrasperBase"/>
+		<limit effort="0.00000" lower="-0.20000" upper="0.20000" velocity="0.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.02860 -0.03480 -0.04199"/>
+		<axis xyz="1.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="RightUprightJoint" type="fixed">
+		<parent link="base_link_gantry"/>
+		<child link="RightUpright"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="1.57080 -0.00000 0.00000" xyz="0.00000 -0.04199 0.00000"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="BasePlateJoint" type="prismatic">
+		<parent link="base_link_gantry"/>
+		<child link="BasePlate"/>
+		<limit effort="0.00000" lower="-0.30000" upper="0.30000" velocity="0.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="1.57080 -0.00000 0.00000" xyz="0.00000 -0.25718 0.05914"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="ObjectBaseJoint" type="fixed">
+		<parent link="BasePlate"/>
+		<child link="ObjectBase"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00382 -0.25718"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="joint_dummy1" type="fixed">
+		<parent link="GrasperBase"/>
+		<child link="base_link"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="-1.57080 0.00000 0.00000" xyz="-0.02800 0.00000 0.00000"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="BCC" type="prismatic">
+		<parent link="base_link"/>
+		<child link="CylinderCons"/>
+		<limit effort="0.00000" lower="-2.50000" upper="2.50000" velocity="0.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="1.57080 -0.00000 0.00000" xyz="0.00000 0.00000 -0.07748"/>
+		<axis xyz="0.00000 1.00000 0.00000"/>
+	</joint>
+	<joint name="LinearJaw1" type="prismatic">
+		<parent link="CylinderCons"/>
+		<child link="SoftSupport1"/>
+		<limit effort="0.00000" lower="0.00000" upper="0.02800" velocity="0.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 -0.02724 -0.05983"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="SJ1" type="fixed">
+		<parent link="SoftSupport1"/>
+		<child link="SoftJaw1"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.05983"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="LinearJaw2" type="prismatic">
+		<parent link="CylinderCons"/>
+		<child link="SoftSupport2"/>
+		<limit effort="0.00000" lower="0.00000" upper="0.02800" velocity="0.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="-3.14159 1.04720 -3.14159" xyz="-0.05544 -0.02724 0.03201"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="SJ2" type="fixed">
+		<parent link="SoftSupport2"/>
+		<child link="SoftJaw2"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.06402"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+	<joint name="LinearJaw3" type="prismatic">
+		<parent link="CylinderCons"/>
+		<child link="SoftSupport3"/>
+		<limit effort="0.00000" lower="0.00000" upper="0.02800" velocity="0.00000"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="-3.14159 -1.04720 -3.14159" xyz="0.03325 -0.02724 0.01920"/>
+		<axis xyz="0.00000 0.00000 1.00000"/>
+	</joint>
+	<joint name="SJ3" type="fixed">
+		<parent link="SoftSupport3"/>
+		<child link="SoftJaw3"/>
+		<dynamics damping="1.0" friction="0.0001"/>
+		<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.03840"/>
+		<axis xyz="0.00000 0.00000 0.00000"/>
+	</joint>
+</robot>

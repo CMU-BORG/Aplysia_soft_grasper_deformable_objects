@@ -1,0 +1,310 @@
+.gantry-space {
+  position: absolute;
+  height: 79.63%;
+  width: 44.79%;
+  top: 13.98%;
+  right: 49.22%;
+  bottom: 6.39%;
+  left: 5.99%;
+  border-radius: var(--br-xl);
+  border: 10px solid var(--color-darkslateblue);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.goal {
+  width: 80%;
+  height: 17.6%;
+
+  border-radius: 41px;
+  color: white;
+
+  text-align: center;
+  background: #775489;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  margin-bottom: 2%;
+  justify-self: end;
+  /* right: 9.8%;
+  left: 9.8%; */
+
+  width: 80%;
+  height: 80%;
+
+  justify-content: space-between;
+  align-items: space-between;
+}
+
+.item {
+  width: 60%;
+  height: 60%;
+
+  display: flex;
+}
+
+.item-icon {
+  width: 80%;
+  height: 80%;
+
+  justify-self: center;
+  align-self: center;
+}
+
+.item-menu {
+  width: 30%;
+  height: 30%;
+
+  background: #775489;
+  border-radius: 41px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+
+  position: absolute;
+
+}
+
+.item-menu * {
+  width: 39%;
+  height: 39%;
+}
+
+.item-menu button {
+  background: #ffffff00;
+  border: none;
+}
+
+.item-menu button:hover {
+  background: #ffffff00;
+  cursor: pointer;
+}
+
+.item-menu button * {
+  width: 100%;
+  height: 100%;
+}
+
+.grasper-controls {
+  position: absolute;
+  height: 67.22%;
+  width: 35.47%;
+  top: 14.26%;
+  right: 6.3%;
+  bottom: 18.52%;
+  left: 58.23%;
+  border-radius: var(--br-xl);
+  background-color: var(--color-darkslateblue);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.gantry-marker {
+  position: absolute;
+}
+
+
+
+
+.attempts-remaining {
+  top: 83.06%;
+  left: 58.28%;
+}
+
+.attempts {
+  position: absolute;
+  height: 4.78%;
+  width: 35.48%;
+  top: 88.87%;
+  right: 6.27%;
+  bottom: 6.36%;
+  left: 58.25%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.attempt {
+  width: inherit;
+  height: 100%;
+  background: #775489;
+  
+}
+
+.grasper-icon {
+  position: absolute;
+  top: 11.85%;
+}
+
+.slider-l-label {
+  position: absolute;
+  top: 49%;
+  left: 10%;
+
+  display: flex;
+  justify-content: right;
+}
+
+.slider-r-label {
+  position: absolute;
+  top: 49%;
+  right: 10%;
+
+  display: flex;
+  justify-content: left;
+}
+
+.background {
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background-color: var(--color-peachpuff);
+}
+
+.mybutton {
+  position: absolute;
+  top: 725px;
+  left: 1394px;
+  width: 121px;
+  height: 74px;
+  text-align: center;
+  color: var(--color-darkslateblue);
+}
+
+.sliders {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 94%;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.slider-l,
+.slider-r {
+  position: absolute;
+  top: 47.7%;
+  width: 341px;
+  height: 171px;
+}
+
+.slider-l {
+  left: 10.4%;
+}
+
+.slider-l .value {
+  left: 0;
+}
+
+.slider-r {
+  right: 10.4%;
+}
+
+.slider-l .value {
+  right: 0;
+}
+
+.dual-grasper-participant {
+  position: relative;
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-17xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+
+.confirm-cancel {
+
+  width: 40%;
+  height: 50%;
+
+  position: absolute;
+  top: 25%;
+  left: 30%;
+
+  background: #f0f0f0bc;
+  border-radius: 42px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.confirm-text {
+  color: black;
+  font-size: 52px;
+
+  width: 90%;
+  text-align: center;
+  margin-top: 17%;
+}
+
+.confirm-button {
+  color: white;
+  font-size: 32px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  width: 25%;
+  height: 16.8%;
+
+  text-wrap: wrap;
+  margin: 5%;
+
+  border: none;
+  border-radius: 25px;
+}
+
+#cancel-trial {
+  background: #E24D4D
+}
+
+#continue-trial {
+  background: #E2954D;
+}
+
+.proctor-paused {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  top: 15%;
+
+  overflow: hidden;
+}
+
+.proctor-paused img {
+  min-width: 100%;
+}

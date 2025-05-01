@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TWAnalysisRunDefinition version="4.3">
+  <_TraitsFileList_ type="String">
+    <String>TWAnalysisRunDefinition.Traits</String>
+  </_TraitsFileList_>
+  <Name>AND1</Name>
+  <Selector>AnalysisDefinitions</Selector>
+  <UniqueId>{9e7c12a4-e286-4485-beab-f73505794d06}</UniqueId>
+  <AnalysisLayout>
+    <AnalysisLayout version="4.3">
+      <SerializedAnalysisViews isNull="true" />
+      <Name></Name>
+      <Selector>AnalysisLayout</Selector>
+      <UniqueId>{0892d651-584d-4386-8d57-c4b706715f9f}</UniqueId>
+      <ViewLayoutStates />
+    </AnalysisLayout>
+  </AnalysisLayout>
+  <DisplayName>
+    <LocalizedString version="4.3">
+      <Selector>DisplayName</Selector>
+      <UniqueId>{cdf7ae05-3815-450a-9921-74d7c8cf764a}</UniqueId>
+      <InternalLocalizedStrings>
+        <Entry>
+          <Key>en</Key>
+          <Value>Review</Value>
+        </Entry>
+      </InternalLocalizedStrings>
+    </LocalizedString>
+  </DisplayName>
+  <DaqInformation />
+</TWAnalysisRunDefinition>

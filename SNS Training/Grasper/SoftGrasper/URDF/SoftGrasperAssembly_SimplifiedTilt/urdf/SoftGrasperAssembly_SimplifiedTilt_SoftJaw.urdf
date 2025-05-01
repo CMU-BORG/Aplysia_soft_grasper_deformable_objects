@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="SoftGrasperAssembly_SimplifiedTilt">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.4517E-17 -0.013906 4.1343E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.092827" />
+      <inertia
+        ixx="0.00014637"
+        ixy="1.0171E-18"
+        ixz="-4.8057E-19"
+        iyy="0.00027935"
+        iyz="3.4898E-18"
+        izz="0.00014637" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="CylinderCons">
+    <inertial>
+      <origin
+        xyz="-3.2048E-15 -0.02443 1.1831E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.0026009" />
+      <inertia
+        ixx="7.883E-06"
+        ixy="-2.8867E-21"
+        ixz="-7.2813E-21"
+        iyy="1.5503E-05"
+        iyz="1.951E-20"
+        izz="7.883E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/CylinderCons.obj" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/CylinderCons.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BCC"
+    type="prismatic">
+    <origin
+      xyz="0 0 -0.077479"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="CylinderCons" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.5"
+      upper="2.5"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="SoftSupport1">
+    <inertial>
+      <origin
+        xyz="-3.4902E-15 -6.088E-05 -0.0096819"
+        rpy="0 0 0" />
+      <mass
+        value="0.020019" />
+      <inertia
+        ixx="2.8922E-06"
+        ixy="2.1911E-21"
+        ixz="1.5668E-20"
+        iyy="3.6958E-06"
+        iyz="-8.3292E-10"
+        izz="5.9269E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LinearJaw1"
+    type="prismatic">
+    <origin
+      xyz="0 -0.027244 -0.059827"
+      rpy="0 0 0" />
+    <parent
+      link="CylinderCons" />
+    <child
+      link="SoftSupport1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="SoftSupport2">
+    <inertial>
+      <origin
+        xyz="-5.0259E-09 -6.0879E-05 -0.0054921"
+        rpy="0 0 0" />
+      <mass
+        value="0.020019" />
+      <inertia
+        ixx="2.8922E-06"
+        ixy="2.1735E-13"
+        ixz="2.0391E-13"
+        iyy="3.6958E-06"
+        iyz="-8.3305E-10"
+        izz="5.9269E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LinearJaw2"
+    type="prismatic">
+    <origin
+      xyz="-0.05544 -0.027244 0.032008"
+      rpy="3.1416 1.0472 3.1416" />
+    <parent
+      link="CylinderCons" />
+    <child
+      link="SoftSupport2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="SoftSupport3">
+    <inertial>
+      <origin
+        xyz="5.0259E-09 -6.0879E-05 -0.031111"
+        rpy="0 0 0" />
+      <mass
+        value="0.020019" />
+      <inertia
+        ixx="2.8922E-06"
+        ixy="-2.1735E-13"
+        ixz="-2.0391E-13"
+        iyy="3.6958E-06"
+        iyz="-8.3305E-10"
+        izz="5.9269E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly_SimplifiedTilt/meshes/SoftSupport3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LinearJaw3"
+    type="prismatic">
+    <origin
+      xyz="0.033253 -0.027244 0.019199"
+      rpy="3.1416 -1.0472 3.1416" />
+    <parent
+      link="CylinderCons" />
+    <child
+      link="SoftSupport3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+</robot>

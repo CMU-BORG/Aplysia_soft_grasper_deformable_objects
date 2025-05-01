@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun version="4.3">
+  <_TraitsFileList_ type="String">
+    <String>TestRun.Traits</String>
+    <String>TestRun.1.Traits</String>
+  </_TraitsFileList_>
+  <Name>TSR71</Name>
+  <InitiallyCalculatedHashes>False</InitiallyCalculatedHashes>
+  <State>Completed</State>
+  <Date>02/23/2025 11:47:14</Date>
+  <LoggingType>Basic</LoggingType>
+  <PlatformVersionCreated>4.3.1.375</PlatformVersionCreated>
+  <PlatformVersionLastModified>4.3.1.375</PlatformVersionLastModified>
+  <Selector>TestRuns</Selector>
+  <UniqueId>{915b2dfc-6b47-44e5-a4eb-9af76071ea02}</UniqueId>
+  <Specimen />
+  <DisplayName>
+    <LocalizedString version="4.3">
+      <Selector>DisplayName</Selector>
+      <UniqueId>{8059b7fd-abfc-4241-8d55-bb5c975c2cad}</UniqueId>
+      <InternalLocalizedStrings>
+        <Entry>
+          <Key>en</Key>
+          <Value>Test Run 71</Value>
+        </Entry>
+      </InternalLocalizedStrings>
+    </LocalizedString>
+  </DisplayName>
+  <AnalysisRuns />
+  <VideoSets />
+</TestRun>

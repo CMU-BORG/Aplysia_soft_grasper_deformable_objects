@@ -1,0 +1,190 @@
+/* vertical slider */
+.v-slider {
+    position: absolute;
+    top: 47.7%;
+    width: 171px;
+    height: 341px;
+}
+
+.slider-l {
+    left: 10.4%;
+}
+
+.slider-l .label{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider-l .range {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.slider-r {
+    right: 10.4%;
+}
+
+.slider-r .label{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.slider-r .range {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+input[type=range][orient=vertical] {
+    /* writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* Chromium */
+    width: 77px;
+    height: 341px;
+    padding: 0 5px; 
+
+    cursor: pointer;
+    outline: solid;
+    outline-offset: -5px;
+    outline-width: 5px;
+    outline-color: #FFCDBC;
+    /*  slider progress trick  */
+    overflow: hidden;
+    border-radius: 8px;
+    background: #775489;
+}
+
+/* Track: webkit browsers */
+input[type="range"][orient=vertical]::-webkit-slider-runnable-track {
+    width: 77px;
+    background: #ffffff00;
+}
+
+/* Track: Mozilla Firefox */
+input[type="range"][orient=vertical]::-moz-range-track {
+    width: 77px;
+    background: #ffffff00;
+}
+
+/* Thumb: webkit */
+input[type="range"][orient=vertical]::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none; 
+
+    width: 105%;
+    background: transparent;
+    background-image: url('public/thumb-v.svg');
+    background-size: cover;
+    border: none;
+    /*  slider progress trick  */
+    box-shadow: 0px 407px 0 400px #FFCDBC;;
+}
+
+
+/* Thumb: Firefox */
+input[type="range"][orient=vertical]::-moz-range-thumb {
+    width: 105%;
+    background: transparent;
+    background-image: url('public/thumb-v.svg');
+    background-size: cover;
+    border: none;
+    /*  slider progress trick  */
+    box-shadow: 0px 407px 0 400px #FFCDBC;;
+}
+
+
+/********* horizontal slider *********/
+.h-slider {
+    position: relative;
+    width: 100%;
+    height: 72px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.h-slider .label * {
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.h-slider h {
+    position: absolute;
+    top: 28.5px;
+    left: 16px;
+    vertical-align: middle;
+    font-size: 32px;
+}
+
+input[type=range][orient=horizontal] {
+    /* writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* Chromium */
+    width: 495px;
+    height: 72px;
+    padding: 0 5px; 
+
+    cursor: pointer;
+    outline: solid;
+    outline-offset: -5px;
+    outline-width: 5px;
+    outline-color: #FFCDBC;
+    /*  slider progress trick  */
+    overflow: hidden;
+    border-radius: 8px;
+    background: #775489;
+}
+
+/* Track: webkit browsers */
+input[type="range"][orient=horizontal]::-webkit-slider-runnable-track {
+    height: 72px;
+    background: #ffffff00;
+}
+
+/* Track: Mozilla Firefox */
+input[type="range"][orient=horizontal]::-moz-range-track {
+    height: 72px;
+    background: #ffffff00;
+}
+
+/* Thumb: webkit */
+input[type="range"][orient=horizontal]::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none; 
+
+    height: 100%;
+    background: transparent;
+    background-image: url('public/thumb-h.svg');
+    background-size: cover;
+    border: none;
+    /*  slider progress trick  */
+    box-shadow: -407px 0 0 400px #FFCDBC;
+}
+
+
+/* Thumb: Firefox */
+input[type="range"][orient=horizontal]::-moz-range-thumb {
+    height: 100%;
+    background: transparent;
+    background-image: url('public/thumb-h.svg');
+    background-size: cover;
+    border: none;
+    /*  slider progress trick  */
+    box-shadow: -407px 0 0 400px #FFCDBC;
+}
+
+.slider-2d{
+    border: 1px solid black;
+    border-radius: var(--br-xl);
+    /* cursor: move; */
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,119 @@
+.rect1394-icon6,
+.text {
+  position: absolute;
+  left: 0;
+}
+.rect1394-icon6 {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.text {
+  height: 1.25%;
+  top: -1%;
+  font-size: var(--font-size-xs);
+  color: var(--color-black);
+  display: inline-block;
+}
+.waiting-to-proceed-child {
+  position: absolute;
+  height: 46.42%;
+  width: 100%;
+  top: 53.58%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-darkslateblue);
+}
+.congratulations,
+.you-have-completed {
+  position: absolute;
+  height: 3.52%;
+  width: 59.2%;
+  top: 57.04%;
+  left: 6.09%;
+  font-size: var(--font-size-13xl);
+  font-weight: 600;
+  display: inline-block;
+}
+.congratulations {
+  height: 5.54%;
+  width: 23.78%;
+  top: 46.39%;
+  font-size: var(--font-size-21xl);
+}
+.g82826-icon6 {
+  position: absolute;
+  height: 6.58%;
+  width: 4.13%;
+  top: 5.05%;
+  right: 82.8%;
+  bottom: 88.37%;
+  left: 13.06%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.g83120-icon6,
+.rect79742-0-2-icon6,
+.rect79742-0-icon6,
+.rect79742-icon6 {
+  position: absolute;
+  height: 6.63%;
+  width: 6.34%;
+  top: 5.06%;
+  right: 87.4%;
+  bottom: 88.32%;
+  left: 6.26%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.rect79742-0-2-icon6,
+.rect79742-0-icon6,
+.rect79742-icon6 {
+  height: 0.85%;
+  width: 5.18%;
+  top: 4.84%;
+  right: 6.19%;
+  bottom: 94.31%;
+  left: 88.63%;
+}
+.rect79742-0-2-icon6,
+.rect79742-0-icon6 {
+  top: 6.97%;
+  bottom: 92.18%;
+}
+.rect79742-0-2-icon6 {
+  top: 9.1%;
+  bottom: 90.05%;
+}
+.am5,
+.jan-285 {
+  position: absolute;
+  height: 5%;
+  width: 10.49%;
+  top: 6.2%;
+  left: 66.98%;
+  display: inline-block;
+  color: var(--color-peachpuff);
+}
+.am5 {
+  width: 6.81%;
+  left: 78.78%;
+}
+.waiting-to-proceed {
+  position: relative;
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}

@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'ZBar_Joint', 'GrasperBase', 'LinearJaw1', 'LinearJaw2', 'LinearJaw3', 'BasePlateJoint', ]

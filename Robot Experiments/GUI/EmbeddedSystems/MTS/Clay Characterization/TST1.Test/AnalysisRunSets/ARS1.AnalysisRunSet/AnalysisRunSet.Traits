@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AnalysisRunSet version="4.3">
+  <_TraitsFileList_ type="String">
+    <String>AnalysisRunSet.Traits</String>
+  </_TraitsFileList_>
+  <Name>ARS1</Name>
+  <AnalysisRunsKeys>{a20485bf-0ba3-4750-8bc6-7c4ca3cbcb49}|{9b24cc1c-b9af-470e-8a6e-e41747579c2c}|{d388de3e-9c8b-48b3-ad94-eb5c03516bef}|{86020302-c022-4503-a47f-d4e709fc958e}|{21ddd46a-b6d2-4054-aeae-27b742221493}|{91e3919d-1a58-4115-98d4-0bf4b6e3b4df}|{ac30faa6-49db-4936-a43a-4622b7752a22}|{84d914c5-a1fb-4bf0-85bd-1039aa3b274a}|{70f4ac8f-e878-46ea-aebc-2e892a4e49c3}|{8e01ffdc-5293-4b25-a2bb-37e6fff7f59a}|{ce473763-77fe-45d0-bea9-e3f54dfe993c}|{63c30b8a-79d6-4b10-b950-3e72f7ae01ea}|{53bb61a3-cf19-4985-ad50-ee11b3e0d94f}|{7b5b6c82-b7fb-45fd-b400-6dce8135325f}|{33149bed-8b2d-47e4-b252-42ec4224ac05}|{6c647002-5af1-45a0-ac76-9979f3b8e31d}|{1a523e29-be7e-4c50-a837-08211d8c063d}|{fae109df-bdae-42de-97a9-e88c18aaf828}|{6f8174ae-4abc-40ee-b4d1-11facf3c91a2}|{e7ffb50e-9db4-4db2-90ec-4ef892ee4231}|{3e18a6e1-e6ae-458d-9af2-c54bbf164a56}|{232b2d57-9dba-4973-a70f-4d471b62f190}|{a131a97d-a9fb-4d7a-b147-ab8b148452db}|{21c089be-ca84-4023-811b-a0a03efc325c}|{b4015b6a-870a-4642-a4da-8fb784b3aa43}|{35d205b5-c72e-4f5e-83e0-f7aefa8f3e1c}|{92948b38-8d8c-48b2-aed6-d93883663015}|{6ed2189f-c941-4ff8-979c-f9cf0f4c0746}|{dd9082a7-fd78-4922-95ee-2c1e6ddd528b}|{8425f283-2c07-435e-bd06-cb841039e0c4}|{f3a2b1eb-6669-48bb-b6eb-a2889559e4bb}|{7e473714-129e-4f6e-80bf-57189f3bc14b}|{706ab93a-e6d9-4c0a-85d7-7049c4b80c5a}|{b6c8b68c-51a7-4253-a126-a91e6d5e5473}|{1c31c84a-2b62-4ee9-bc0f-c84061b1a764}|{e1e42de3-2411-45ef-be62-d7ca2d086cf1}|{53a6dda7-e51d-427b-981e-d8c75379faef}|{534b8e1d-6d2b-40aa-97ea-aa48f904905b}|{596059c1-1121-4060-9baf-37443191dd2c}|</AnalysisRunsKeys>
+  <Selector>AnalysisRunSets</Selector>
+  <UniqueId>{dd0c1f68-5e41-463b-989c-56cfcdf0e3eb}</UniqueId>
+  <AnalysisDefinition />
+  <DisplayName>
+    <LocalizedString version="4.3">
+      <Selector>DisplayName</Selector>
+      <UniqueId>{c443aa60-7efd-45a3-8ce6-181db89c373c}</UniqueId>
+      <InternalLocalizedStrings>
+        <Entry>
+          <Key>en</Key>
+          <Value>Test 869</Value>
+        </Entry>
+      </InternalLocalizedStrings>
+    </LocalizedString>
+  </DisplayName>
+  <ExcludeAnalysisRunRules />
+  <ExcludedAnalysisRunsInfo />
+</AnalysisRunSet>

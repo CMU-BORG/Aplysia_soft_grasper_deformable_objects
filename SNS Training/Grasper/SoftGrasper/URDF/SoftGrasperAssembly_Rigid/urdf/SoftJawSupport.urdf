@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="SoftGrasperAssembly">
+  <link
+    name="SoftJawSupport">
+    <inertial>
+      <origin
+        xyz="-0.00469837185860517 0.0187907990076485 -0.00213132141294291"
+        rpy="0 0 0" />
+      <mass
+        value="0.0200194973174634" />
+      <inertia
+        ixx="2.89222439047605E-06"
+        ixy="-1.57754698251412E-20"
+        ixz="2.1783749078538E-21"
+        iyy="5.92689954681078E-06"
+        iyz="8.32919442690706E-10"
+        izz="3.69577196530894E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/SoftJawSupport.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/SoftJawSupport.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

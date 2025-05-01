@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='dual-grasper-PARTICIPANT.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='components.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Arial:wght@700&display=swap"
+    />
+  </head>
+  <script src="{{ url_for('static', filename='/slider_2d.js') }}"></script>
+  <body>
+    <div class="header-bar-participant"  id="header-bar-PARTICIPANT" style="display: block">
+        <div class="header-left">
+            <img 
+            class="borg" 
+            alt="" 
+            src="{{ url_for('static', filename='/public/borg-logo.svg') }}" 
+            />
+
+            <img 
+            class="cmu" 
+            alt=""
+            src="{{ url_for('static', filename='/public/cmu-logo.svg') }}" 
+          />
+      </div>
+
+      <div class="header-right">
+          <img 
+          class="menu-icon" 
+          alt="" 
+          src="{{ url_for('static', filename='/public/menu.svg') }}"
+          />
+      </div>
+
+    </div>
+    <div class="soft-grasper-participant">
+
+      <div class="gantry-space">
+
+        {# gantry curr position #}
+        <img 
+          id="gantry-marker" 
+          alt="" 
+          src="{{ url_for('static', filename='/public/gantry.svg') }}" 
+        />
+
+        <img 
+          class="goal"
+          alt=""
+          src="{{ url_for('static', filename='/public/goal.png') }}" 
+        />
+
+        <div class="item-grid">
+          {% for row in range(3) %}
+            {% for col in range(3) %}
+              {% set n = row * 3 + col %}
+              {% set name = 'item' + n|string %}
+              <div class="item" style="grid-row: {{row+1}} / {{row+2}}; grid-column: {{col+1}} / {{col+2}}">
+                <img class="item-icon" alt="" src="{{ url_for('static', filename='public/no-attempt.svg') }}" />
+              </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+
+
+        <svg class="slider-2d" width="840" height="840"></svg>
+
+      </div>
+
+      <div class="grasper-controls">
+        <h style="top: 3%;">Grasper</h>
+
+        <img 
+          class="grasper-icon" 
+          alt="" 
+          src="{{ url_for('static', filename='/public/soft-grasper.svg') }}" 
+          style="width: 48%"
+        />
+
+        <div class="sliders">
+          <div class="h-slider">
+            <input type="range" id="range" orient="horizontal" step="0.1"/>
+            <div class="label">
+              <h1 class="value">76%</h1>
+              <h2>Damping</h2>
+            </div>
+          </div>
+          <div class="h-slider">
+            <input type="range" id="range" orient="horizontal" step="0.1"/>
+            <div class="label">
+              <h1 class="value">76%</h1>
+              <h2>Stiffness</h2>
+            </div>
+          </div>
+          <div class="h-slider">
+            <input type="range" id="range" orient="horizontal" step="0.1"/>
+            <div class="label">
+              <h1 class="value">76%</h1>
+              <h2>Power</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h class="attempts-remaining">10 attempts remaining</h>
+      <img
+        class="attempts"
+        alt=""
+        src="{{ url_for('static', filename='/public/attempts.svg') }}" 
+      />
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+html * {
+  font-family: var(--font-inter);
+}
+
+body {
+  margin: 0;
+  line-height: normal;
+  background: #34113F;
+}
+
+.body {
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  position: relative;
+}
+
+.page {
+  width: 100%;
+
+}
+
+h {
+  position: absolute;
+  font-size: 36px;
+  color: #FFFFFF;
+}
+
+h1 {
+  font-size: 36px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header-bar {
+  width: 100%;
+  height: 14%;
+
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.header-button {
+  color: white;
+  font-size: 32px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.header-button img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header-bar .header-left {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  position: absolute;
+  left: 5.8%;
+}
+
+.header-bar .header-right {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  position: absolute;
+  right: 6.4%;
+}
+
+.header-bar .header-right button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+
+  width: 190px;
+  height: 53px;
+  border-radius: 25px;
+
+  margin-right: 25px;
+}
+
+.header-bar .header-right .pause {
+  background-color: #E2954D;
+}
+
+.header-bar .header-right .cancel {
+  background-color: #E24D4D;
+}
+
+
+:root {
+  /* fonts */
+  --font-inter: Inter;
+  --font-arial: Arial;
+
+  /* font sizes */
+  --font-size-13xl: 32px;
+  --font-size-5xl: 24px;
+  --font-size-17xl: 36px;
+  --font-size-21xl: 40px;
+  --font-size-xs: 12px;
+
+  /* Colors */
+  --color-darkslateblue: #775489;
+  --color-darkslateblue-100: #34113f;
+  --color-white: #fff;
+  --color-lightgreen: #70ca68;
+  --color-peachpuff: #ffcdbc;
+  --color-crimson: #e24d4d;
+  --color-sandybrown: #e2954d;
+  --color-gainsboro: rgba(217, 217, 217, 0);
+  --color-black: #000;
+
+  /* border radiuses */
+  --br-8xl-5: 27.5px;
+  --br-6xl: 25px;
+  --br-7xl: 26px;
+  --br-7xl-5: 26.5px;
+  --br-3xs: 10px;
+  --br-xl: 20px;
+  --br-5xs: 8px;
+}

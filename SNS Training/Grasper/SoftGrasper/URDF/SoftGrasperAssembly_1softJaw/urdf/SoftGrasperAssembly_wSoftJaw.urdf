@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="SoftGrasperAssembly">
+  <link
+    name="ConstrainingCylinder">
+    <inertial>
+      <origin
+        xyz="0.0975764703577163 -0.0752056146841021 -0.0453675725517977"
+        rpy="0 0 0" />
+      <mass
+        value="0.00192984071052557" />
+      <inertia
+        ixx="5.70536612199393E-06"
+        ixy="4.12769380361416E-36"
+        ixz="-2.75574912167852E-37"
+        iyy="5.70536612199388E-06"
+        iyz="3.47371967530493E-22"
+        izz="1.13785682321457E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/ConstrainingCylinder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/ConstrainingCylinder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="JawSupport">
+    <inertial>
+      <origin
+        xyz="1.3878E-17 -6.088E-05 0.0056971"
+        rpy="0 0 0" />
+      <mass
+        value="0.020019" />
+      <inertia
+        ixx="2.8922E-06"
+        ixy="2.0842E-21"
+        ixz="1.6223E-20"
+        iyy="3.6958E-06"
+        iyz="-8.3292E-10"
+        izz="5.9269E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/JawSupport.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/JawSupport.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LinearJaw1"
+    type="prismatic">
+    <origin
+      xyz="0.097576 0 -0.045368"
+      rpy="1.5708 0 0" />
+    <parent
+      link="ConstrainingCylinder" />
+    <child
+      link="JawSupport" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="SoftJaw1">
+    <inertial>
+      <origin
+        xyz="-1.3878E-17 -6.9389E-18 -0.054391"
+        rpy="0 0 0" />
+      <mass
+        value="0.015121" />
+      <inertia
+        ixx="1.7236E-06"
+        ixy="-3.1795E-21"
+        ixz="1.0892E-21"
+        iyy="1.331E-06"
+        iyz="2.3317E-22"
+        izz="2.4259E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/SoftJaw1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/SoftJaw1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="SJ1"
+    type="fixed">
+    <origin
+      xyz="0 0 0.075206"
+      rpy="0 0 0" />
+    <parent
+      link="JawSupport" />
+    <child
+      link="SoftJaw1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="JawSupport2">
+    <inertial>
+      <origin
+        xyz="-5.0259E-09 -6.0879E-05 -0.022608"
+        rpy="0 0 0" />
+      <mass
+        value="0.020019" />
+      <inertia
+        ixx="2.8922E-06"
+        ixy="2.1735E-13"
+        ixz="2.0391E-13"
+        iyy="3.6958E-06"
+        iyz="-8.3305E-10"
+        izz="5.9269E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/JawSupport2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/JawSupport2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LinearJaw2"
+    type="prismatic">
+    <origin
+      xyz="0.056959 -0.098656 -0.045368"
+      rpy="1.5708 0 2.0944" />
+    <parent
+      link="ConstrainingCylinder" />
+    <child
+      link="JawSupport2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="JawSupport3">
+    <inertial>
+      <origin
+        xyz="5.0259E-09 -6.0879E-05 -0.031111"
+        rpy="0 0 0" />
+      <mass
+        value="0.020019" />
+      <inertia
+        ixx="2.8922E-06"
+        ixy="-2.1735E-13"
+        ixz="-2.0391E-13"
+        iyy="3.6958E-06"
+        iyz="-8.3305E-10"
+        izz="5.9269E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/JawSupport3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SoftGrasperAssembly/meshes/JawSupport3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LinearJaw3"
+    type="prismatic">
+    <origin
+      xyz="0.13083 -0.094404 -0.045368"
+      rpy="1.5708 0 -2.0944" />
+    <parent
+      link="ConstrainingCylinder" />
+    <child
+      link="JawSupport3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <deformable name="SoftJaw">
+   <inertial>
+     <mass value="1" />
+     <inertia ixx="0.0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+   </inertial>
+   <collision_margin value="0.006"/>
+   <repulsion_stiffness value="800.0"/>
+   <friction value= "0.5"/>
+   <neohookean mu= "60" lambda= "200" damping= "0.01" />
+   <visual filename="package://SoftGrasperAssembly/meshes/SoftJaw1.vtk"/>
+ </deformable>
+</robot>
