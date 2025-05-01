@@ -23,16 +23,16 @@ The main environment for simulating a gantry system with a soft grasper and obje
 in [GantrySimulation.py](SNS Training/Gantry/envs/GantrySimulation.py). The neural network parameters are defined in [SNS_layer.py](SNS Training/Gantry/controller/SNS_layer.py) and the supervised learning environment is defined in [train.py](SNS Training/Gantry/controller/train.py)
 
 ```bash
-Gantry
-├── controller
-    ├── torchSNS
-    ├── SNS_layer.py
-    └── train.py
-├── envs
-    ├── GantrySimulation.py
-    └── sinusoidgui_programmaticcheck.py
-PickAndPlace_SoftGrasperCheck.py
-PickAndPlace.py
+SNS Training
+├── Gantry
+    ├── controller
+        ├── torchSNS
+        ├── SNS_layer.py
+        └── train.py
+    ├── envs
+        ├── GantrySimulation.py
+        └── sinusoidgui_programmaticcheck.py
+    test.ipynb
 
 ```
 
@@ -48,7 +48,7 @@ If it runs then you have set the gantry
 environment correctly.
 
 ## Training a Model
-To train the sensory layer, run [train.py](Gantry/controller/train.py).
+To train the SNS layer, run [train.py](SNS Training/Gantry/controller/train.py).
 
 ```bash
 python -m Gantry.controller.train
@@ -56,10 +56,10 @@ python -m Gantry.controller.train
 
 ## Evaluating the Controller
 
-To evaluate the designed SNS controller, run [PickAndPlace.py](PickAndPlace.py).
+To evaluate the designed SNS controller, run [test.ipynb](SNS Training/test.ipynb).
 
 ```bash
-python PickAndPlace.py
+python test.ipynb
 ```
 
 ## Support
