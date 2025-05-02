@@ -20,7 +20,7 @@ The current release provides the following features:
 
 ## Training the SNS
 The main environment for simulating a gantry system with a soft grasper and objects to pick is
-in [GantrySimulation.py](SNS Training/Gantry/envs/GantrySimulation.py). The neural network parameters are defined in [SNS_layer.py](SNS Training/Gantry/controller/SNS_layer.py), and the supervised learning environment is defined in [train.py](SNS Training/Gantry/controller/train.py)
+in GantrySimulation.py. The neural network parameters are defined in SNS_layer.py, and the supervised learning for the sensory layer is defined in train.py
 
 ```bash
 SNS Training
@@ -38,7 +38,7 @@ SNS Training
 
 ### Verifying the Gantry Environment
 
-You can run the [PickAndPlace_SoftGrasperCheck.py](PickAndPlace_SoftGrasperCheck.py) script to verify your environment setup.
+You can run the PickAndPlace_SoftGrasperCheck.py script to verify your environment setup.
 
 ```bash
 python -m PickAndPlace_SoftGrasperCheck.py
