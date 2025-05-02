@@ -9,9 +9,9 @@ This repository provides an implementation of the soft grasper controlled by a S
 
 
 
-This environment builds upon the Pybullet simulator (https://pybullet.org/wordpress) and the [keras ncp](https://github.com/mlech26l/keras-ncp) by Mathias Lechner, Institute of Science and Technology Austria (IST Austria) ([Paper](https://www.nature.com/articles/s42256-020-00237-3?ref=https://coder.social)).
+This simulation environment builds upon the Pybullet simulator (https://pybullet.org/wordpress) and the SNS training implementation is developed based on [keras ncp](https://github.com/mlech26l/keras-ncp) by Mathias Lechner, Institute of Science and Technology Austria (IST Austria) ([Paper](https://www.nature.com/articles/s42256-020-00237-3?ref=https://coder.social)).
 
-The current release provides following features:
+The current release provides the following features:
 * Implementation of the gantry system and simple objects in Pybullet.
 * Implementation of a soft grasper and its contact dynamics in Pybullet.
 * Implementation of supervised learning for SNS.
@@ -20,7 +20,7 @@ The current release provides following features:
 
 ## Training the SNS
 The main environment for simulating a gantry system with a soft grasper and objects to pick is
-in [GantrySimulation.py](SNS Training/Gantry/envs/GantrySimulation.py). The neural network parameters are defined in [SNS_layer.py](SNS Training/Gantry/controller/SNS_layer.py) and the supervised learning environment is defined in [train.py](SNS Training/Gantry/controller/train.py)
+in [GantrySimulation.py](SNS Training/Gantry/envs/GantrySimulation.py). The neural network parameters are defined in [SNS_layer.py](SNS Training/Gantry/controller/SNS_layer.py), and the supervised learning environment is defined in [train.py](SNS Training/Gantry/controller/train.py)
 
 ```bash
 SNS Training
