@@ -79,7 +79,7 @@ Class is contained in [Robot Experiments/GUI/EmbeddedSystems/JoyCon/JoyCon.py]
 
 ### Rigid Grasper Control
 
-Class for communicating with the rigid grasper from the PC is contained in [Robot Experiments/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py]. Code to communicate with the Dynamixel motors is adapted from [here](https://github.com/ROBOTIS-GIT/emanual/blob/master/docs/en/software/dynamixel/dynamixel_sdk/sample_code/python/python_read_write_protocol_2_0.md)
+Class for communicating with the rigid grasper from the PC is contained in [Robot Experiments/GUI/EmbeddedSystems/RigidGrasper/RigidGrasper.py].
 
 The Teensy code to read from the load cell is contained in [Robot Experiments/GUI/EmbeddedSystems/RigidGrasper/LoadCellForceSensor/src/main.cpp]
 

@@ -120,8 +120,8 @@ class IntegratedSystem:
         self.SNS_target_pos_m = [-0.19,-0.19,-0.184] #original -0.19,-0.24,-0.184
         self.SNS_object_pos_m = [-0.0095875,0.012362,-0.18464] #[0,0,-0.184]
         self.ContactThreshold = {"Pressure Threshold (psi)":[0.010,0.020,0.029], "Pressure Scaling":[1,1,1]}
-        self.ContactThreshold_Rigid = {"Force Threshold (N)":0.1, "Force Scaling":2}
-        self.maxJawChangeInRadius_mm = 30 #20 mm max jaw change in radius #TODO: need to change to 10 for rigid grasper, 30 mm for soft grasper
+        self.ContactThreshold_Rigid = {"Force Threshold (N)":0.22, "Force Scaling":2}
+        self.maxJawChangeInRadius_mm = 25 #20 mm max jaw change in radius #TODO: need to change to 10 for rigid grasper, 30 mm for soft grasper
         self.SNS_BypassForceFeedback = True
         self.SNS_grasper_tc_s = 0 #time constant for the closure muscle of the grasper
 
@@ -307,23 +307,23 @@ class IntegratedSystem:
 
 
         if home_system == False:
-            self.GC = GantryController(comport="COM4",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+            self.GC = GantryController(comport="COM12",homeSystem = False, initPos=[0,0,0])#, homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         elif home_system == True:
-            self.GC = GantryController(comport="COM4")  # , homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
+            self.GC = GantryController(comport="COM12")  # , homeSystem = False,initPos=[0,0,0]  #initialize gantry controller
 
         if self.grasperType == GrasperType.SoftGrasper:
-            self.SG = SoftGrasper(COM_Port='COM8', BaudRate=460800, timeout=1,
+            self.SG = SoftGrasper(COM_Port='COM3', BaudRate=460800, timeout=1,
                              controllerProfile="New")  # initialize soft grasper
 
             self.jcSG = JC.Joy_SoftGrasper(SGa=self.SG,
                                       GantryS=self.GC)  # initialize joystick control of soft grasper and gantry controller
 
-            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] +0.039 #add 39 mm because the grasper is now 39 mm lower than at first to accomodate the camera
+            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] +0.058 #add 39 mm because the grasper is now 39 mm lower than at first to accomodate the camera
 
 
         elif self.grasperType == GrasperType.RigidGrasper:  # rigid grasper
-            self.SG = RigidGrasper(DEVICEPORT = "COM6",useForceSensor = True, COM_Port_Force = 'COM3',BaudRate_Force=460800)
+            self.SG = RigidGrasper(data_rate = 115200, port_num = "COM7", useForceSensor = True)
 
             self.jcSG = JC.Joy_RigidGrasper(RGa=self.SG,
                                            GantryS=self.GC)  # initialize joystick control of rigid grasper and gantry controller
@@ -333,12 +333,12 @@ class IntegratedSystem:
 
             #self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] -0.004 #add 21 mm because the rigid grasper jaws are closer to the base platform than the soft grasper
             self.SNS_object_pos_m[2] = self.SNS_object_pos_m[2] -0.004
-            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] +0.001 #done to try without interference at release point
+            self.SNS_target_pos_m[2] = self.SNS_target_pos_m[2] +0.025 #done to try without interference at release point
 
             #self.SG.setPID(Kp=100, Ki=2, Kd=0) #setup the gains
-            self.SG.setPID(Kp=10000, Ki=200, Kd=0)  #for the fruit
-            #self.SG.setPID(Kp=37000,Ki = 350, Kd = 0) #for the clay make sure it closes correctly
-            self.SG.getPID()
+            # self.SG.setPID(Kp=10000, Ki=200, Kd=0)  #for the fruit
+            # #self.SG.setPID(Kp=37000,Ki = 350, Kd = 0) #for the clay make sure it closes correctly
+            # self.SG.getPID()
 
         self.SNSc = SNScontroller()
 
@@ -491,7 +491,7 @@ class IntegratedSystem:
             if self.jcSG.ControlMode == JC.JoyConState.USE_SNS:
                 self.logger.debug('Inside SNS control')
 
-                self.GrasperReadAverage["Number of Loops"] = 15#15
+                self.GrasperReadAverage["Number of Loops"] = 25#15
                 self.GrasperReadAverage["Time Delay (s)"] = 0.005
                 self.GrasperReadAverage["Average Event"].set()  # setup to average values before returning
 
@@ -521,7 +521,14 @@ class IntegratedSystem:
                 curPos = Point(-self.SNS_object_pos_m[0] + curPos.x, -self.SNS_object_pos_m[1] + curPos.y,
                                -z_offset + curPos.z)  # get where the current position is relative to where the object is
 
-                grasperPosition = Point(curPos.x, curPos.y, curPos.z)  # convert to meters
+                use_noise = False #December 4th 2025: done for noise immunity tests
+                if use_noise == True:
+                    noise = 0.01*np.random.randn(3) #noise amplitude is 10 mm, or 0.01 meters
+                    grasperPosition = Point(curPos.x + noise[0], curPos.y + noise[1], curPos.z + noise[2])  # convert to meters
+
+                else:
+                    grasperPosition = Point(curPos.x, curPos.y, curPos.z)  # convert to meters
+
                 self.logger.debug('Target position in m: %f %f %f' % (*target_position_list,))
                 self.logger.debug('GrasperPos in m:%f %f %f' % (*grasperPosition,))
                 self.logger.debug('ObjectPos in m:%f %f %f' % (*object_position_list,))
@@ -537,7 +544,7 @@ class IntegratedSystem:
                         grasperContact = np.array([x*pressureScaling[i] for (i,x) in enumerate(grasperContact)])
 
                     else:
-                        grasperContact = [(x-grasperThreshold[i]) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
+                        grasperContact = [(x) * pressureScaling[i] if x >= grasperThreshold[i] else 0 for (i, x) in
                                           enumerate(jawPressure)]
 
 
@@ -564,8 +571,10 @@ class IntegratedSystem:
                     grasperThreshold = self.ContactThreshold_Rigid["Force Threshold (N)"]
                     forceScaling = self.ContactThreshold_Rigid["Force Scaling"]
 
-                    grasperContact = ((jawPressure[0] - grasperThreshold) * forceScaling if jawPressure[0] >= grasperThreshold else 0)
+                    grasperContact = ((jawPressure[0]) * forceScaling if jawPressure[0] >= grasperThreshold else 0)
                     #repeat the same force for all three.
+
+                    #print('%f, %f, %f'%(jawPressure[0], grasperContact, self.SNSc.force_threshold_gain))
 
                     grasperContact = GrasperContactForce(grasperContact, grasperContact, grasperContact) #grasper contact force
 
@@ -660,7 +669,7 @@ class IntegratedSystem:
                     #Rigid grasper is using the absolute gripper width. So set the max distance to 85 mm
                     #and then subtract 2x the SNS command since the SNS command in an incremental increase in radius
                     #max_dist = 65 if (self.SNSc.ControlMode == ControlType.FORCE_CAP and self.SNSc.object_grasped_phase == True) else 80 #maximum distance to open the jaws
-                    max_dist = 80
+                    max_dist = 65
                     self.SG.commandedPosition["ClosureDistance_mm"] = max(max_dist - 2*(JawRadialPos_m * 1000),
                                                                            self.maxJawChangeInRadius_mm) #limit to 52.5 because for the cube it takes a long time to move from 80 to 45 with large time constant. TODO: make this more elegant
 
@@ -1668,8 +1677,10 @@ class IntegratedSystem:
                     [k for k, v in self.SNSc.neuronset.items()])  # for the SNS neuron states
                 headerstr = headerstr + "," + ','.join(
                     [k for k, x in self.ObjectVal.items()])  # for the object states
-
                 headerstr = headerstr + "," + "Mode"
+                headerstr = headerstr + "," + ",".join(k for k,v in self.SNSc.motorneurons.items()) #for the SNS motor neuron commands
+
+
 
                 self.time_0 = time.time()
 
@@ -1709,6 +1720,8 @@ class IntegratedSystem:
             datastr = datastr + "," + ','.join(["Object "+ str(x.status.name) for k, x in self.ObjectVal.items()]) #for the objects
 
             datastr = datastr + "," + str(self.jcSG.ControlMode.name)
+
+            datastr = datastr + "," + ",".join(str(v) for k,v in self.SNSc.motorneurons.items())
 
 
             self.datalogger.info(datastr)
@@ -1975,6 +1988,27 @@ class IntegratedSystem:
 
         self.logger.info("Max closure (mm): %f" % self.maxJawChangeInRadius_mm)
 
+        # Set the perceptor time constant: Added December 4th 2025
+        if False:
+            sensoryTau_response = await aioconsole.ainput("Enter 'Y' to change the Perceptor Tau.  "
+                                                          "Enter 'N' otherwise.\n"
+                                                          "The current value is: %f" % self.SNSc.modulation_sensory_tau)
+
+            match sensoryTau_response.upper():
+                case "Y":
+                    sensoryTau = await aioconsole.ainput("Enter sensory tau as a float.\n")
+
+                    self.SNSc.modulation_sensory_tau = float(sensoryTau)
+
+                case "N":
+                    pass
+
+                case _:
+                    pass
+
+            self.SNSc.perceptor.set_tau(self.SNSc.modulation_sensory_tau)
+            self.logger.info("SNS modulation sensory tau (s): %f" % self.SNSc.modulation_sensory_tau)
+
 
 
     async def SNS_input_jaw_thresholds_and_gains(self):
@@ -2023,48 +2057,48 @@ class IntegratedSystem:
                 "Threshold (N): %f" % (self.ContactThreshold_Rigid["Force Threshold (N)"]))
 
 
-            # ------ gain inputs -------#
-            if self.grasperType == GrasperType.SoftGrasper:
-                SNS_gains_input = await aioconsole.ainput(
-                    "Please enter 'Y' to enter the gains for the jaws\n"
-                    "Or, enter 'N' to use the default values of %f,%f,%f\n"
-                    "This is the multiplication factor on the measured pressure to transform it to a force.\n" % (
-                        tuple(self.ContactThreshold["Pressure Scaling"])))
+        # ------ gain inputs -------#
+        if self.grasperType == GrasperType.SoftGrasper:
+            SNS_gains_input = await aioconsole.ainput(
+                "Please enter 'Y' to enter the gains for the jaws\n"
+                "Or, enter 'N' to use the default values of %f,%f,%f\n"
+                "This is the multiplication factor on the measured pressure to transform it to a force.\n" % (
+                    tuple(self.ContactThreshold["Pressure Scaling"])))
 
-            elif self.grasperType == GrasperType.RigidGrasper:
-                SNS_gains_input = await aioconsole.ainput(
-                    "Please enter 'Y' to enter the gain for the jaws\n"
-                    "Or, enter 'N' to use the default values of %f\n"
-                    "This is the multiplication factor on the measured pressure to transform it to a force.\n" % (
-                        self.ContactThreshold_Rigid["Force Scaling"]))
+        elif self.grasperType == GrasperType.RigidGrasper:
+            SNS_gains_input = await aioconsole.ainput(
+                "Please enter 'Y' to enter the gain for the jaws\n"
+                "Or, enter 'N' to use the default values of %f\n"
+                "This is the multiplication factor on the measured pressure to transform it to a force.\n" % (
+                    self.ContactThreshold_Rigid["Force Scaling"]))
 
 
 
-            match SNS_gains_input.upper():
+        match SNS_gains_input.upper():
 
-                case "N":
-                    pass
+            case "N":
+                pass
 
-                case "Y":
+            case "Y":
 
-                    if self.grasperType == GrasperType.SoftGrasper:
-                        vals = await aioconsole.ainput(
-                            "Please enter the scaling for pressure for each jaw, and separated by commas. \n")
-                        vals = [float(x) for x in vals.split(',')]
-                        self.ContactThreshold["Pressure Scaling"] = vals
+                if self.grasperType == GrasperType.SoftGrasper:
+                    vals = await aioconsole.ainput(
+                        "Please enter the scaling for pressure for each jaw, and separated by commas. \n")
+                    vals = [float(x) for x in vals.split(',')]
+                    self.ContactThreshold["Pressure Scaling"] = vals
 
-                    elif self.grasperType == GrasperType.RigidGrasper:
-                        vals = await aioconsole.ainput(
-                            "Please enter the scaling for force for the jaw \n")
-                        vals = float(vals)
-                        self.ContactThreshold_Rigid["Force Scaling"] = vals
-                case _:
-                    pass
-            if self.grasperType == GrasperType.SoftGrasper:
-                self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
+                elif self.grasperType == GrasperType.RigidGrasper:
+                    vals = await aioconsole.ainput(
+                        "Please enter the scaling for force for the jaw \n")
+                    vals = float(vals)
+                    self.ContactThreshold_Rigid["Force Scaling"] = vals
+            case _:
+                pass
+        if self.grasperType == GrasperType.SoftGrasper:
+            self.logger.info("Scaling: %f, %f, %f" % (tuple(self.ContactThreshold["Pressure Scaling"])))
 
-            else:
-                self.logger.info("Scaling: %f" % (self.ContactThreshold_Rigid["Force Scaling"]))
+        else:
+            self.logger.info("Scaling: %f" % (self.ContactThreshold_Rigid["Force Scaling"]))
 
     async def SNS_input_Modulate_Open_Loop(self):
         maxPos = await aioconsole.ainput("Enter 'Y' to change the scaling of the max radial position.  Enter 'N' otherwise.\n")

@@ -44,6 +44,8 @@ class SNScontroller:
             "lift_after_release":0
         }
 
+        self.motorneurons = {"x_c_mm":0, "y_c_mm":0, "z_c_mm":0, "jaw_c_mm":0}
+
         #self.logger = None
         #self.setupLogger()
 
@@ -360,6 +362,14 @@ class SNScontroller:
         self.neuronset['move_to_release'] = move_to_release
         self.neuronset['release'] = release
         self.neuronset['lift_after_release'] = lift_after_release
+
+
+        #motor neuron update
+        self.motorneurons["x_c_mm"] = cmd_grasperPos_m.x*1000 #convert to mm
+        self.motorneurons["y_c_mm"] = cmd_grasperPos_m.y*1000
+        self.motorneurons["z_c_mm"] = cmd_grasperPos_m.z*1000
+        self.motorneurons["jaw_c_mm"] = JawRadialPos_m*1000
+
 
 
 

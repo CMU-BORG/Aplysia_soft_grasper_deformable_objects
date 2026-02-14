@@ -180,6 +180,11 @@ class SNS_Perception(nn.Module):
         self._command_layer_state = torch.zeros(
             (1, self._command_layer.state_size))
 
+    def set_tau(self, tau): #added on Dec 3rd 2025
+        self._sensory_layer_1._params["tau"] = tau * torch.ones_like(self._sensory_layer_1._params["tau"])
+        self._sensory_layer_2._params["tau"] = tau * torch.ones_like(self._sensory_layer_2._params["tau"])
+        self._command_layer._params["tau"] = tau * torch.ones_like(self._command_layer._params["tau"])
+
 
 # sensory_layer_1
 sparsity_mask = np.zeros(

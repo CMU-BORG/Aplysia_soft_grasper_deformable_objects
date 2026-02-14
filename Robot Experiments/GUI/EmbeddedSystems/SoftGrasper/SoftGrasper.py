@@ -73,8 +73,8 @@ class SoftGrasper:
         self.JawPos = [1, 2, 3]  # position of pressure values that the jaws are at
         self.closureMuscle_idx = 0 #index for the closure muscle
         self.changeInPressure = [0, 0, 0] # change in pressure in psi for the three jaws
-        self.maxClosurePressure_psi = 12 #maximum pressure for the closure muscle in psi
-        self.min_abs_diameter_mm = 26 #minimum absolute diameter achievable in mm
+        self.maxClosurePressure_psi = 13.5 #maximum pressure for the closure muscle in psi
+        self.min_abs_diameter_mm = 23 #minimum absolute diameter achievable in mm
         self.max_abs_diameter_mm = 66.16 #maximum absolute diameter achievable in mm
 
 
@@ -138,29 +138,32 @@ class SoftGrasper:
     def GetForceFromPosition(self, pressure_arr,pressureThreshold = 0 ):
 
         def calcForce(p):
-            a = 0.2403
-            b = 8.8984
-            c = -0.2158
-            d = -18.5218
-            F = a*np.exp(b*p) + c*np.exp(d*p)
+            a = -872.6819
+            b = 766.5919
+            c = -203.2338
+            d = 29.3909
+            e = -0.4312
+            F = a*(p**4) + b*(p**3) + c*(p**2) + d*p + e
             return F
+
+        # def calcForce(p): #use the exponential fit above because it extrapolates more reasonably
+        #     cf = [-6.7407e3, 1.0174e4, -5.1443e3, 1.0337e3, -54.8054, 6.7151, 0.0827]
+        #     F = cf[0]*p**6 + cf[1]*p**5 + cf[2]*p**4 + cf[3]*p**3 + cf[4]*p**2 + cf[5]*p + cf[6]
+        #     return F
 
         force_arr = [calcForce(p)*(p>=pressureThreshold[i]) for [i,p] in enumerate(pressure_arr)]
         return(force_arr)
 
 
 
-    def GetPressureFromPosition(self,position_mm,coeffs=[-0.0000001777329,
-                                                         0.00004792679,
-                                                         -0.005318879,
-                                                         0.3107475,
-                                                         -10.06705,
-                                                         170.9448,
-                                                         -1174.247]):
+    def GetPressureFromPosition(self,position_mm,coeffs=[-0.0004167741,
+                                                         0.054940758,
+                                                         -2.5222272,
+                                                         47.950061]):
         b = coeffs
         x = position_mm
         x=np.clip(x,self.min_abs_diameter_mm,self.max_abs_diameter_mm)  #limit to maximum  mm contraction
-        pressV = b[0]*(x**6) + b[1]*(x**5) + b[2]*(x**4) + b[3]*(x**3) + b[4]*(x**2) + b[5]*(x) + b[6]*1
+        pressV = b[0]*(x**3) + b[1]*(x**2) + b[2]*(x) + b[3]*1
         pressV = np.clip(pressV,0,self.maxClosurePressure_psi)  #limit pressure
         return(pressV)
     def SendPressureCommand(self,PressureVal):

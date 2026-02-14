@@ -13,7 +13,7 @@ const int G_ENABLE = 15;
 //#define ReadSingle
 //#define DebugSingle
 //#define ReadMultiple
-#define DebugPrint //define if you want to send all the debug print statements
+//#define DebugPrint //define if you want to send all the debug print statements
 
 
 
@@ -25,9 +25,9 @@ const int G_ENABLE = 15;
 const int numPressurePorts = 4;  
 const int numActivePorts = 4;
 PressurePort Pa[numPressurePorts] = { PressurePort(1, 2, 28, PressurePort::START, 0.1, 0, 30, "I3", 0.01), //actuator 0 h
-                                      PressurePort(3, 4, 4, PressurePort::START, 0.05, 0, 30, "JAW1", 0.35), //actuator 8 l
-                                      PressurePort(5, 6, 3, PressurePort::START, 0.05, 0, 30, "JAW2", 0.35), //actuator 8 l 
-                                      PressurePort(7, 8, 2, PressurePort::START, 0.05, 0, 30, "JAW3", 0.35)}; //actuator 11 l
+                                      PressurePort(3, 4, 25, PressurePort::START, 0.05, 0, 30, "JAW1", 0.35), //actuator 8 l
+                                      PressurePort(5, 6, 24, PressurePort::START, 0.05, 0, 30, "JAW2", 0.35), //actuator 8 l 
+                                      PressurePort(7, 8, 10, PressurePort::START, 0.05, 0, 30, "JAW3", 0.35)}; //actuator 11 l
 
 
 //--------------Loop Timing--------------- //
