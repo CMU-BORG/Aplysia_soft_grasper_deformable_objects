@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 import pybullet as p
 import pybullet_data
+import re
 import Gantry.controller.torchSNS as tSNS
 from Gantry.envs.GantrySimulation import GantrySimulation
 from Gantry.controller.torchSNS.torch import SNSCell,SNSCell_modulation
@@ -192,9 +193,9 @@ class SNS_Perception_closed_loop_modulation(nn.Module):
     def forward(self, gripper_position, object_position, target_position, force):
         position_input = torch.cat((gripper_position, object_position, target_position), dim=1)
         _, self._sensory_layer_1_state = self._sensory_layer_1.forward(position_input, self._sensory_layer_1_state)
-        sensory_layer_2_input = torch.cat((self._sensory_layer_1_state, force, self._command_layer_state[:, 1].reshape(1, -1)), dim=1)
+        sensory_layer_2_input = torch.cat((self._sensory_layer_1_state, force, self._command_layer_state[:, 3].reshape(1, -1)), dim=1)
         _, self._sensory_layer_2_state, self._sensory_layer_2_a, self._sensory_layer_2_buffer = self._sensory_layer_2.forward(sensory_layer_2_input, self._sensory_layer_2_state, self._sensory_layer_2_a, self._sensory_layer_2_buffer)
-        command_input = (1 + self._sensory_layer_2._params["k_io"] * self._sensory_layer_2_a) * self._sensory_layer_2_state
+        command_input = self._sensory_layer_2_state / (1 + self._sensory_layer_2._params["k_io"] * self._sensory_layer_2_a)
         output, self._command_layer_state = self._command_layer.forward(command_input, self._command_layer_state)
 
         #return output, self._sensory_layer_2_state
@@ -216,7 +217,8 @@ class SNS_Perception_closed_loop_modulation(nn.Module):
         self._command_layer._params["tau"] = tau * torch.ones_like(self._command_layer._params["tau"])
 
     def set_modulation_gain(self, modulation_gain):
-        self._sensory_layer_2._params["k_io"] = (1 / modulation_gain - 1) * torch.ones_like(self._sensory_layer_2._params["k_io"])
+        #self._sensory_layer_2._params["k_io"] = (1 / modulation_gain - 1) * torch.ones_like(self._sensory_layer_2._params["k_io"])
+        self._sensory_layer_2._params["k_io"] = (modulation_gain - 1) * torch.ones_like(self._sensory_layer_2._params["k_io"])
 
     def set_force_threshold(self, force_threshold_gain):
         self._command_layer._params["sensory_mu"].data = torch.load("Gantry\\controller\\output_mu_param").data.reshape(-1, 1).repeat(1, COMMAND_LAYER_SIZE)
@@ -287,7 +289,7 @@ class SNS_Control_closed_loop_v2(nn.Module):
 
     def forward(self, object_position, target_position, input):
         _, self._inter_layer_1_state = self._inter_layer_1.forward(input, self._inter_layer_1_state)
-        _, self._inter_layer_2_state = self._inter_layer_2.forward(torch.cat((object_position.repeat_interleave(2, dim=1)[:, :-1], target_position.repeat_interleave(2, dim=1)[:, :-1], self._inter_layer_1_state[:, :2], self._inter_layer_1_state[:, -2:]), dim=1), self._inter_layer_2_state)
+        self._inter_layer_2_output, self._inter_layer_2_state = self._inter_layer_2.forward(torch.cat((object_position.repeat_interleave(2, dim=1)[:, :-1], target_position.repeat_interleave(2, dim=1)[:, :-1], self._inter_layer_1_state[:, :2], self._inter_layer_1_state[:, -2:]), dim=1), self._inter_layer_2_state)
         output, self._motor_layer_state = self._motor_layer.forward(torch.cat((self._inter_layer_2_state[:,:-2], self._inter_layer_1_state[:, [-3]], self._inter_layer_2_state[:,-2:]), dim=1), self._motor_layer_state)
 
         #return output.squeeze(dim=0), self._inter_layer_2_state
@@ -397,9 +399,9 @@ sensory_layer_2._params["tau"].data = tau
 
 sparsity_mask = np.vstack((sparsity_mask, np.zeros([1, sparsity_mask.shape[1]], dtype=np.int32)))
 sparsity_mask_modulation = np.zeros([SENSORY_LAYER_2_INPUT_SIZE + 1, SENSORY_LAYER_2_SIZE], dtype=np.int32)
-sparsity_mask_modulation[-1, 4:8] = 1
+sparsity_mask_modulation[-1, 4:7] = 1
 theta_max_in = torch.Tensor(np.concatenate((R * np.ones(SENSORY_LAYER_1_SIZE), F_MAX, R * np.ones(1))))
-sensory_layer_2_feedback_modulation = SNS_layer(layer_input_size=SENSORY_LAYER_2_INPUT_SIZE + 1, layer_size=SENSORY_LAYER_2_SIZE, sparsity_mask=sparsity_mask, sparsity_mask_modulation=sparsity_mask_modulation, theta_max_in=theta_max_in, R=R, k_io=5 * torch.ones(SENSORY_LAYER_2_SIZE), t_d=0.5 * torch.ones(SENSORY_LAYER_2_SIZE))
+sensory_layer_2_feedback_modulation = SNS_layer(layer_input_size=SENSORY_LAYER_2_INPUT_SIZE + 1, layer_size=SENSORY_LAYER_2_SIZE, sparsity_mask=sparsity_mask, sparsity_mask_modulation=sparsity_mask_modulation, theta_max_in=theta_max_in, R=R, beta=0.1 * torch.ones(SENSORY_LAYER_2_SIZE), k_io=5 * torch.ones(SENSORY_LAYER_2_SIZE), t_d=1.0 * torch.ones(SENSORY_LAYER_2_SIZE))
 sensory_layer_2_feedback_modulation._params["sensory_erev"][:-1, :] = sensory_layer_2_param["sensory_erev"]
 sensory_layer_2_feedback_modulation._params["sensory_w"][:-1, :] = sensory_layer_2_param["sensory_w"]
 sensory_layer_2_feedback_modulation._params["tau"].data = tau
@@ -503,15 +505,15 @@ tau = torch.Tensor(0.1 * np.ones(INTER_LAYER_1_SIZE + 1))
 inter_layer_1_closed_loop_v2 = SNS_layer(layer_input_size=INTER_LAYER_1_INPUT_SIZE, layer_size=INTER_LAYER_1_SIZE + 1, sparsity_mask=sparsity_mask, R=R, tau=tau)
 inter_layer_1_closed_loop_v2._params["sensory_erev"].data[0, 2] = 10
 inter_layer_1_closed_loop_v2._params["sensory_erev"].data[4, 2] = 10
-inter_layer_1_closed_loop_v2._params["sensory_erev"].data[1, 4] = R / 1.2
+inter_layer_1_closed_loop_v2._params["sensory_erev"].data[1, 4] = R / 1.2 * 5
 
 
 # inter_layer_2
 # neuron 0/1 object_x(+-)
-# neuron 2/3 object_y(+-)
-# neuron 4 object_z
-# neuron 5/6 target_x(+-)
-# neuron 7/8 target_y(+-)
+# neuron 2/3 target_x(+-)
+# neuron 4/5 object_y(+-)
+# neuron 6/7 target_y(+-)
+# neuron 8 object_z
 # neuron 9 target_z
 sparsity_mask = np.zeros([INTER_LAYER_2_INPUT_SIZE, INTER_LAYER_2_SIZE], dtype=np.int32)
 for i in range(2):
@@ -633,7 +635,7 @@ controller_closed_loop_modulation.eval()
 
 
 # pick_and_place function runs a pick and place simulation. 
-def pick_and_place(position_o, position_t, perceptor, controller, PressureValue=2.5, end_time=8, force_threshold_gain=1, inhibitory_gain=1, grasper_closing_speed=1, zero_time_constant=False, mass=1, sizeScaling=0.6):
+def pick_and_place(position_o, position_t, perceptor, controller, PressureValue=2.5, end_time=8, force_threshold_gain=1, inhibitory_gain=1, grasper_closing_speed=1, zero_time_constant=False, mass=1, sizeScaling=0.6, video_logging=False, cameraDistance=0.5, cameraYaw=180, cameraPitch=-20, cameraTargetPosition=[0, 0, 0.2], early_stop=False, noise_level=0, render_mode="human"):
     """
     Parameters
         ----------
@@ -680,31 +682,47 @@ def pick_and_place(position_o, position_t, perceptor, controller, PressureValue=
     if zero_time_constant is True:
         controller._inter_layer_1._params["tau"].data[-2:] = 0
         controller._motor_layer._params["tau"].data[3] = 0
-    gS = GantrySimulation() #gantryURDFfile = "URDF//GrasperAndGantry//urdf//GrasperAndGantry.urdf"
+    gS = GantrySimulation(render_mode=render_mode) #gantryURDFfile = "URDF//GrasperAndGantry//urdf//GrasperAndGantry.urdf"
     # add object to the simulation at the center of the plate
     gS.addObjectsToSim("PickupCube", startPos=[position_o[0], position_o[1], (0.063 + 0.02)], mass_kg=mass, sizeScaling=sizeScaling, sourceFile=str(pathlib.Path.cwd()/"Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\PickUpObject_URDF.urdf"))
+    # gS.addObjectsToSim("PickupCube", startPos=[position_o[0], position_o[1], (0.063 + 0.02)], mass_kg=mass, sizeScaling=sizeScaling, sourceFile=str(pathlib.Path.cwd()/"Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\CylinderObject_URDF.urdf"))
     p.setAdditionalSearchPath(pybullet_data.getDataPath())
     p.setAdditionalSearchPath("C://Users//Ravesh//BulletPhysics//bullet3//examples//pybullet//gym//pybullet_data")
+    #p.resetDebugVisualizerCamera(cameraDistance=0.463, cameraYaw=20, cameraPitch=-45, cameraTargetPosition=[0, 0, 0])
+    p.resetDebugVisualizerCamera(cameraDistance=cameraDistance, cameraYaw=cameraYaw, cameraPitch=cameraPitch, cameraTargetPosition=cameraTargetPosition)
+    if video_logging:
+        p.startStateLogging(p.STATE_LOGGING_VIDEO_MP4, "pick_and_place.mp4")
 
     neuron_history = []
     sensory_history = []
     command_history = []
+    inter_history = []
+    trajectory = []
     GUI_control = True
     gS.simCounter = 0
     ts = gS.timeStep  # time step of the simulation in seconds
     object_position = torch.Tensor(position_o).unsqueeze(dim=0)
-    target_position = torch.Tensor([0, 0, position_o[-1]]).unsqueeze(dim=0)
-    #target_position = torch.Tensor(position_t).unsqueeze(dim=0)
+    #target_position = torch.Tensor([0, 0, position_o[-1]]).unsqueeze(dim=0)
+    target_position = torch.Tensor(position_t).unsqueeze(dim=0)
 
-    while (not gS.CheckStopSim()):  # check to see if the button was pressed to close the sim
+    # while (not gS.CheckStopSim()):  # check to see if the button was pressed to close the sim
+    while True:  # check to see if the button was pressed to close the sim
         timeStart = time.perf_counter()
         nsteps = gS.simCounter  # of simulation steps taken so far
-        if ts * nsteps > 1:
-            target_position = torch.Tensor(position_t).unsqueeze(dim=0)
+        #if ts * nsteps > 1:
+        #    target_position = torch.Tensor(position_t).unsqueeze(dim=0)
 
-        x = gS.bulletClient.getJointState(gS.gantryId, gS.GantryLinkIndex_dict["GantryHeadIndex"])[0]
-        y = gS.bulletClient.getJointState(gS.gantryId, gS.GantryLinkIndex_dict["BasePositionIndex"])[0]
-        z = gS.bulletClient.getJointState(gS.gantryId, gS.GantryLinkIndex_dict["ZAxisBarIndex"])[0]
+        x_true = gS.bulletClient.getJointState(gS.gantryId, gS.GantryLinkIndex_dict["GantryHeadIndex"])[0]
+        y_true = gS.bulletClient.getJointState(gS.gantryId, gS.GantryLinkIndex_dict["BasePositionIndex"])[0]
+        z_true = gS.bulletClient.getJointState(gS.gantryId, gS.GantryLinkIndex_dict["ZAxisBarIndex"])[0]
+        trajectory.append([x_true, y_true, z_true])
+        x = x_true + noise_level * np.random.randn()
+        y = y_true + noise_level * np.random.randn()
+        z = z_true + noise_level * np.random.randn()
+        # x = x_true
+        # y = y_true
+        # z = z_true
+
         gripper_position = torch.Tensor([x, y, z]).unsqueeze(dim=0)
         force_feedback_1 = gS.bulletClient.getContactPoints(gS.gantryId, gS.objects["PickupCube"].objId, gS.gantryLinkDict["SJ1"], -1)
         force_feedback_2 = gS.bulletClient.getContactPoints(gS.gantryId, gS.objects["PickupCube"].objId, gS.gantryLinkDict["SJ2"], -1)
@@ -721,11 +739,23 @@ def pick_and_place(position_o, position_t, perceptor, controller, PressureValue=
             force_3 = np.linalg.norm(sum(np.array([np.array(x[7]) * x[9] for x in force_feedback_3])), 2)
         else:
             force_3 = 0
+
+
+        jaw_position = []
+        for k in range(0, gS.bulletClient.getNumJoints(gS.Grasper.GrasperID)):
+            JointI = gS.bulletClient.getJointInfo(gS.Grasper.GrasperID, k)
+            if re.match("LinearJaw\d", JointI[1].decode()) is not None:
+                jaw_position.append(gS.bulletClient.getJointState(gS.gantryId, k)[0])
+
+        # force_1 += noise_level * np.random.randn()
+        # force_2 += noise_level * np.random.randn()
+        # force_3 += noise_level * np.random.randn()
         force = torch.Tensor([force_1, force_2, force_3]).unsqueeze(dim=0)
 
         commands, force_output = perceptor.forward(gripper_position, object_position, target_position, force)
+        #a = perceptor._sensory_layer_2_a
         [move_to_pre_grasp, move_to_grasp, grasp, lift_after_grasp, move_to_pre_release, move_to_release, release, lift_after_release] = commands.squeeze(dim=0).numpy()
-        force_sum = force_output.squeeze(dim=0).numpy()
+        force_sum = force_output.squeeze().numpy()
         if isinstance(controller, SNS_Control_closed_loop_v1):
             motor_states = controller.forward(object_position, target_position, commands, force_output)
         else:
@@ -737,17 +767,23 @@ def pick_and_place(position_o, position_t, perceptor, controller, PressureValue=
         if lift_after_release > 10:
             object_position = torch.Tensor([0, 0, 0]).unsqueeze(dim=0)
 
-        sensory_history.append([x, y, z, force_1, force_2, force_3, force_sum])
+        sensory_history.append([x, y, z, force_1, force_2, force_3, float(force_sum), jaw_position[0], jaw_position[1], jaw_position[2]])
         command_history.append([x_d, y_d, z_d, JawRadialPos, PressureValue])
         neuron_history.append([move_to_pre_grasp, move_to_grasp, grasp, lift_after_grasp, move_to_pre_release, move_to_release, release, lift_after_release])
+        inter_history.append([controller._inter_layer_2_state.squeeze(dim=0).numpy()])
+        #a_history.append(a.squeeze(dim=0).numpy())
 
         GrasperArguments = {"frictionCoefficient": 1, "PressureValue": PressureValue, "TargetJawPosition": JawRadialPos, "MaxJawForce": 20, "MaxVel": 0.1, "MaxVertForce": 100, "TargetVertPosition": 0, "MaxVertVel": 0.1}
         ArgumentDict = {"x_gantryHead": x_d, "y_BasePos": y_d, "z_AxisBar": z_d, "x_force": 50, "y_force": 500, "z_force": 500, "GrasperArguments": GrasperArguments}
 
         # ---------step the simulation----------
         gS.stepSim(usePositionControl=True, GUI_override=True, **ArgumentDict)  # pass argument dict to function
+
         if ts * nsteps > end_time:
             gS.bulletClient.disconnect()
             break
+        elif lift_after_release > 10 and early_stop:
+            gS.bulletClient.disconnect()
+            break
 
-    return np.array(neuron_history), np.array(sensory_history), np.array(command_history)
+    return np.array(neuron_history), np.array(sensory_history), np.array(command_history), np.array(inter_history), np.array(trajectory)
