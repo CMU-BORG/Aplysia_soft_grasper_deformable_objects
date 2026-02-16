@@ -93,7 +93,7 @@ The different flavors of the SNS controller are contained within [Robot Experime
 
 ## Aligning Point Clouds and quantifying deformation
 
-To align point clouds, enter the .obj of the pre- and post- grasp point clouds in [Deformable Object Analysis/MaxForce.xlsx].  Then, run [Deformable Object Analysis/Process_visualize_scans.py] to batch align, generate figures and videos, and compute Chamfer Distance for the different experiments. The .obj files and datalogs available upon request. 
+To align point clouds, enter the .obj of the pre- and post- grasp point clouds in [Deformable Object Analysis/MaxForce.xlsx].  Then, run [Deformable Object Analysis/Process_visualize_scans.py] to batch align, generate figures and videos, and compute Chamfer Distance for the different experiments. The .obj files and datalogs for the deformable grasping experiments and the noise immunity tests on the robot are available at [10.5281/zenodo.18637792](https://doi.org/10.5281/zenodo.18637792). 
 
 ![me](https://github.com/CMU-BORG/Aplysia_soft_grasper_deformable_objects/blob/main/Deformable%20Object%20Analysis/Soft_Rigid.gif)
 
