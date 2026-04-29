@@ -58,10 +58,6 @@ python -m Gantry.controller.train
 
 To evaluate the designed SNS controller, run [test.ipynb](SNS Training/test.ipynb).
 
-```bash
-python test.ipynb
-```
-
 
 ## Controlling the robot
 
