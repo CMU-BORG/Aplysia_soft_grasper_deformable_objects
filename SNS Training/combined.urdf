@@ -9,7 +9,7 @@
 		<visual>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 			<material name="mat_-1_0">
 				<color rgba="0.89804 0.91765 0.92941 1.00000" />
@@ -18,7 +18,7 @@
 		<collision>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/base_link.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 		</collision>
 	</link>
@@ -31,7 +31,7 @@
 		<visual>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/LeftUpright.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/LeftUpright.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 			<material name="mat_0_0">
 				<color rgba="0.89804 0.91765 0.92941 1.00000" />
@@ -40,7 +40,7 @@
 		<collision>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/LeftUpright.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/LeftUpright.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 		</collision>
 	</link>
@@ -53,7 +53,7 @@
 		<visual>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/ZBar.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/ZBar.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 			<material name="mat_1_0">
 				<color rgba="0.89804 0.91765 0.92941 1.00000" />
@@ -62,7 +62,7 @@
 		<collision>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/ZBar.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/ZBar.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 		</collision>
 	</link>
@@ -75,7 +75,7 @@
 		<visual>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/GrasperBase.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/GrasperBase.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 			<material name="mat_2_0">
 				<color rgba="0.89804 0.91765 0.92941 1.00000" />
@@ -84,7 +84,7 @@
 		<collision>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/GrasperBase.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/GrasperBase.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 		</collision>
 	</link>
@@ -97,7 +97,7 @@
 		<visual>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/RightUpright.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/RightUpright.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 			<material name="mat_3_0">
 				<color rgba="0.89804 0.91765 0.92941 1.00000" />
@@ -106,7 +106,7 @@
 		<collision>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/RightUpright.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/RightUpright.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 		</collision>
 	</link>
@@ -119,7 +119,7 @@
 		<visual>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/BasePlate.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/BasePlate.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 			<material name="mat_4_0">
 				<color rgba="0.89804 0.91765 0.92941 1.00000" />
@@ -128,7 +128,7 @@
 		<collision>
 			<origin rpy="0.00000 -0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
 			<geometry>
-				<mesh filename="V:\Research\FRR\FRR Soft Grasper\FRR_SoftGrasper\PyBullet Model\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/BasePlate.STL" scale="1.00000 1.00000 1.00000"/>
+				<mesh filename="c:\Users\Yanjun\Documents\Aplysia_soft_grasper_deformable_objects\SNS Training\Gantry\envs\URDF/GantryAssembly_NoGrasper/meshes/BasePlate.STL" scale="1.00000 1.00000 1.00000"/>
 			</geometry>
 		</collision>
 	</link>

@@ -682,7 +682,8 @@ def pick_and_place(position_o, position_t, perceptor, controller, PressureValue=
     if zero_time_constant is True:
         controller._inter_layer_1._params["tau"].data[-2:] = 0
         controller._motor_layer._params["tau"].data[3] = 0
-    gS = GantrySimulation(render_mode=render_mode) #gantryURDFfile = "URDF//GrasperAndGantry//urdf//GrasperAndGantry.urdf"
+    # gS = GantrySimulation(render_mode=render_mode) #gantryURDFfile = "URDF//GrasperAndGantry//urdf//GrasperAndGantry.urdf"
+    gS = GantrySimulation() #gantryURDFfile = "URDF//GrasperAndGantry//urdf//GrasperAndGantry.urdf"
     # add object to the simulation at the center of the plate
     gS.addObjectsToSim("PickupCube", startPos=[position_o[0], position_o[1], (0.063 + 0.02)], mass_kg=mass, sizeScaling=sizeScaling, sourceFile=str(pathlib.Path.cwd()/"Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\PickUpObject_URDF.urdf"))
     # gS.addObjectsToSim("PickupCube", startPos=[position_o[0], position_o[1], (0.063 + 0.02)], mass_kg=mass, sizeScaling=sizeScaling, sourceFile=str(pathlib.Path.cwd()/"Gantry\\envs\\URDF\\PickUpObject_URDF\\urdf\\CylinderObject_URDF.urdf"))
